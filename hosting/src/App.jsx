@@ -1,5 +1,4 @@
 // import { useState } from 'react'
-import bigBoss from './assets/big_boss.jpg'
 import './App.css'
 
 function App() {

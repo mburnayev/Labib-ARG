@@ -1,5 +1,5 @@
 body {
-  background: url('src/assets/big_boss.jpg');
+  background: url('/big_boss.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
