@@ -1,4 +1,3 @@
-// import { useState } from 'react'
 import './App.css'
 import { useState } from 'react'
 
@@ -10,10 +9,13 @@ function App() {
     const [q5, setQ5] = useState("")
 
     const handleSubmit = () => {
-        if (q1 == 17972 && q2 == 82 && q3 == "flak bait" && q4 == 194 && q5 == "concorde"){
+        if (q1 == 17972 && q2 == 82 && q3 == "flak bait" && q4 == 194 && q5 == "concorde") {
+            // Can be replaced with next step of puzzle
             window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
         }
-        window.alert("No cigar, Big Boss")
+        else {
+            window.alert("No cigar, Big Boss")
+        }
     };
 
     return (
@@ -25,7 +27,7 @@ function App() {
                 <input type="text" id="q1" value={q1} onChange={(e) => setQ1(e.target.value)} placeholder=" " />
 
                 <h3>Two suns twice over japan (two numbers):</h3>
-                <input type="text" id="q2" value={q2} onChange={(e) => setQ2(e.target.value)}placeholder=" " />
+                <input type="text" id="q2" value={q2} onChange={(e) => setQ2(e.target.value)} placeholder=" " />
 
                 <h3>I'm named like a dog but not quite as mean, flying that many missions it was hard to keep me clean, inferior aim but a great sitting duck, they ask me how can one bird have so much luck. But not all things last and as l am now torn apart, I sit in a hanger someday to restart, while the paint on my hull makes great t shirt art (4 letters, space, 4 letters, no caps):</h3>
                 <input type="text" id="q3" value={q3} onChange={(e) => setQ3(e.target.value)} placeholder=" " />
