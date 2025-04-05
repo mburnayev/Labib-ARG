@@ -1,0 +1,36 @@
+h2 {
+    text-align: center;
+}
+
+.wrapper {
+    text-align: center;
+}
+
+.card-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: nowrap;
+    gap: 10px;
+    padding: 10px;
+    width: 100%;
+    overflow-x: auto;
+    min-height: 300px;
+}
+
+.game-card {
+    transition: all 0.3s ease;
+    border: 3px solid transparent;
+    flex: 1;
+    min-width: 80px;
+    max-width: 14%;
+}
+
+.game-card:hover {
+    transform: translateY(-10px);
+}
+
+.game-card.selected {
+    border-color: #ffc107;
+    box-shadow: 0 0 15px #ffc107;
+}
