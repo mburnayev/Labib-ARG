@@ -7,6 +7,7 @@ function App() {
     const [q3, setQ3] = useState("")
     const [q4, setQ4] = useState("")
     const [q5, setQ5] = useState("")
+    var sfx = new Audio("cry.wav")
 
     const handleSubmit = () => {
         if (q1 == 17972 && q2 == 82 && q3 == "flak bait" && q4 == 194 && q5 == "concorde") {
@@ -21,7 +22,7 @@ function App() {
     return (
         <div>
             <div>
-                <h1 className='text-center text-justify'>If you've found your way to this page, you're on the right page</h1>
+                <h1 className="text-center text-justify">If you've found your way to this page, you're on the right page</h1>
                 <h2>The only place you can continue an after practice tradition, then see the minecraft movie at max less than 40 steps away, all this and that's not the main attraction, although a lot of it is a bit old fashioned.</h2>
                 <h3>Below Spy Skunk (5 numbers):</h3>
                 <input type="text" id="q1" value={q1} onChange={(e) => setQ1(e.target.value)} placeholder=" " />
@@ -40,6 +41,7 @@ function App() {
                 <br></br>
                 <br></br>
                 <button onClick={handleSubmit}>Submit</button>
+                <img src="heavy.jpg" onClick={() => sfx.play()} style={{ float: "right", transform: "translateX(-80px)" }} />
             </div>
         </div>
     )
