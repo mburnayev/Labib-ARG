@@ -8,7 +8,7 @@ function Home() {
     const [q3, setQ3] = useState("")
     const [q4, setQ4] = useState("")
     const [q5, setQ5] = useState("")
-    var sfx = new Audio("cry.wav")
+    var sfx = new Audio("rev.mp3")
     const navigate = useNavigate();
 
     const handleSubmit = () => {
@@ -42,8 +42,10 @@ function Home() {
                 <br></br>
                 <br></br>
                 <button onClick={handleSubmit}>Submit</button>
-                <img src="heavy.jpg" onClick={() => sfx.play()} style={{ float: "right", transform: "translateX(-80px)" }} />
             </div>
+            <img src="heavy.png" width="200" height="200" onClick={() => sfx.play()} style={{ float: "right", transform: "translateX(-80px)" }} />
+            <h4>Location hint ----------------------------------------------------------------------------------------------------------------------------------------------&gt;</h4>
+
         </div>
     );
 }
