@@ -43,7 +43,7 @@ function Home() {
                 <br></br>
                 <button onClick={handleSubmit}>Submit</button>
             </div>
-            <img src="heavy.png" width="200" height="200" onClick={() => sfx.play()} style={{ float: "right", transform: "translateX(-80px)" }} />
+            <img src="heavy.png" width="150" height="150" onClick={() => sfx.play()} style={{ float: "right", transform: "translateX(-80px)" }} />
             <h4>Location hint ----------------------------------------------------------------------------------------------------------------------------------------------&gt;</h4>
 
         </div>
