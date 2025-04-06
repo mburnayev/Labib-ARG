@@ -1,6 +1,7 @@
 import "./Home.css"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
+import { path } from "./App"
 
 function Home() {
     const [q1, setQ1] = useState("")
@@ -13,7 +14,7 @@ function Home() {
 
     const handleSubmit = () => {
         if (q1 == 17972 && q2 == 82 && q3 == "flak bait" && q4 == 194 && q5 == "concorde") {
-            navigate("/magic");
+            navigate(path);
         }
         else {
             window.alert("No cigar, Big Boss")

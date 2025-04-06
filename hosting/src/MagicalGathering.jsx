@@ -1,26 +1,52 @@
 import { useState } from "react"
 import Card from "react-bootstrap/Card";
-import "./MagicalGathering.css"; // Make sure to import the CSS
+import "./MagicalGathering.css";
+import { db } from "../firebase/config";
+import { doc, getDoc } from "firebase/firestore";
 
 function MagicalGathering() {
-    // State to track which card is selected
     const [selectedCard, setSelectedCard] = useState(null);
-    const [selectionList, setSelectionList] = useState([]);
+    const [selectionList, setSelectionList] = useState("");
 
     const cardClickEvent = (cardId) => {
         setSelectedCard(cardId);
-        setSelectionList(prevList => [...prevList, cardId]);
+        setSelectionList(prevList => prevList + cardId.toString());
     };
 
-    const handleSubmit = () => {       
+    async function handleSubmit() {
         setSelectedCard(null)
-        if (selectionList.toString() == [1, 3, 2, 4, 5, 6, 3, 7].toString() || selectionList.toString() == [1, 3, 4, 2, 5, 6, 3, 7].toString()) {
-            setSelectionList([])
-            window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
-        }
-        else {
-            window.alert("No cigar, Big Boss")
-            setSelectionList([])
+        try {
+            const baseRef = doc(db, "tqa6VvzSntTO/jiovHHK6a0Ie")
+            const snapshot = await getDoc(baseRef)
+            const data = snapshot.data()
+            
+            let foundMatch = false;
+            let matchingKey = null;
+            
+            if (data) {
+                for (const key in data) {
+                    if (Array.isArray(data[key]) && 
+                        data[key].some(item => String(item).trim() === selectionList)) {
+                        foundMatch = true;
+                        matchingKey = key;
+                        break;
+                    }
+                }
+            }
+
+            if (foundMatch) {
+                setSelectionList("");
+                const redirRef = doc(db, "tqa6VvzSntTO/6yt5wO9ltllt");
+                const snapshot = await getDoc(redirRef);
+                window.alert(JSON.stringify(snapshot.data()));
+            }
+            else {
+                window.alert("No cigar, Big Boss");
+                setSelectionList("");
+            }
+        } catch (error) {
+            console.error("Error fetching db content:", error)
+            setSelectionList("")
         }
     };
 
